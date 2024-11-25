@@ -1,0 +1,44 @@
+<div class="flex justify-content-center p-6" [style]="{ 'background-color': '#f5f5f5', 'min-height': '100vh' }">
+  <div class="flex flex-column w-12 sm:w-8 md:w-6 lg:w-4 gap-5 p-4" 
+       [style]="{ 'background-color': 'white', 'border-radius': '10px', 'box-shadow': '0 4px 8px rgba(0,0,0,0.1)' }">
+    
+    <!-- Título -->
+    <span class="font-bold text-3xl text-center" [style]="{ 'color': '#6A0DAD' }">
+      ¡Bienvenido a nuestra plataforma!
+    </span>
+    
+    <!-- Formulario -->
+    <form [formGroup]="formLogin" class="flex gap-4 flex-column">
+      <!-- Campo de Usuario -->
+      <div class="flex flex-column gap-2">
+        <label for="username" [style]="{ 'font-weight': 'bold', 'color': '#6A0DAD' }">Usuario</label>
+        <input
+          formControlName="username"
+          pInputText
+          id="username"
+          aria-describedby="username-help"
+          [style]="{ 'border-radius': '8px', 'padding': '10px', 'border': '1px solid #ddd', 'width': '100%' }" />
+      </div>
+      
+      <!-- Campo de Contraseña -->
+      <div class="flex flex-column gap-2">
+        <label for="password" [style]="{ 'font-weight': 'bold', 'color': '#6A0DAD' }">Contraseña</label>
+        <input
+          formControlName="password"
+          pInputText
+          id="password"
+          type="password"
+          aria-describedby="username-help"
+          [style]="{ 'border-radius': '8px', 'padding': '10px', 'border': '1px solid #ddd', 'width': '100%' }" />
+      </div>
+    </form>
+    
+    <!-- Botón de Login -->
+    <div class="flex justify-content-end">
+      <p-button label="Login" 
+                (click)="login()" 
+                styleClass="p-button-rounded" 
+                [style]="{ 'background-color': '#6A0DAD', 'color': 'white', 'padding': '10px 20px', 'border-radius': '25px' }" />
+    </div>
+  </div>
+</div>

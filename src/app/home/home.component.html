@@ -1,0 +1,36 @@
+<!-- Encabezado de bienvenida -->
+<div class="text-center p-3" [style]="{ 'color': '#6A0DAD', 'font-size': '24px', 'font-weight': 'bold' }">
+  Bienvenido
+</div>
+
+<!-- Tabla de Parqueaderos -->
+<p-table [value]="parqueaderos" [paginator]="true" [rows]="10">
+  <ng-template pTemplate="header">
+    <tr>
+      <th>Nombre</th>
+      <th>NIT</th>
+      <th>Dirección</th>
+      <th>Teléfono</th>
+      <th>Acciones</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-parqueadero>
+    <tr>
+      <td>{{parqueadero.nombre}}</td>
+      <td>{{parqueadero.nit}}</td>
+      <td>{{parqueadero.direccion}}</td>
+      <td>{{parqueadero.telefono}}</td>
+      <td>
+        <!-- Botón para editar -->
+        <button pButton icon="pi pi-pencil" class="p-button-rounded p-button-info" (click)="seleccionarParqueadero(parqueadero)"
+                [style]="{ 'background-color': '#6A0DAD', 'color': 'white' }"></button>
+        <!-- Botón para eliminar -->
+        <button pButton icon="pi pi-trash" class="p-button-rounded p-button-danger" (click)="deleteParqueadero(parqueadero.id)"
+                [style]="{ 'background-color': '#D32F2F', 'color': 'white' }"></button>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>
+
+<!-- Botón para agregar un nuevo parqueadero -->
+<p-button icon="pi pi-plus" label="Agregar Parqueadero" (click)="verFormParqueadero = true" styleClass="p-button-success p-mt-3" />
